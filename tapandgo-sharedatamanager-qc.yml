@@ -1,0 +1,23 @@
+spring:
+  data:
+    mongodb:
+      database: op
+      host: localhost
+      port: 27017
+    elasticsearch:
+      cluster-name: elasticsearch
+      cluster-nodes: localhost.100:9300
+  cloud:
+    config:
+      label: dev
+      uri: file://localhost:8282
+server:
+  tomcat:
+    accesslog:
+      enabled: true
+      pattern: "%h %l %u %t %r %s %b %D -- %{X-Trace-Id}o"
+      prefix: ${project.name}.access_log
+
+duplicate:
+  storage:
+    elasticsearch: false
